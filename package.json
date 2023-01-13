@@ -1,0 +1,34 @@
+{
+  "name": "picklebox",
+  "version": "1.0.0",
+  "description": "PickleHub Client Native",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/cdn/input.css -o ./src/cdn/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pickle69420/picklebox.git"
+  },
+  "keywords": [
+    "picklehub",
+    "unblocker",
+    "proxy",
+    "chat",
+    "unblocked",
+    "games",
+    "pickle69420"
+  ],
+  "author": "pickle69420",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pickle69420/picklebox/issues"
+  },
+  "homepage": "https://github.com/pickle69420/picklebox#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "uglify-js": "^3.17.4"
+  }
+}
