@@ -1,16 +1,22 @@
-function load() {
+function piklload() {
     return new Promise((resolve,reject)=>{
-        var modalbox = document.getElementsByClassName('modalbox')[0];
-        fetch('./module.html')
+        var modalbox = document.getElementsByClassName('pikl-maincontainer')[0];
+        fetch('./cdn/module.html')
 	    .then((response) => response.text())
 	    .then((data) => {
 		    modalbox.innerHTML = data;
 	    });
+        var jamlib = document.createElement('link');
+        jamlib.rel = 'stylesheet';
+        jamlib.href = 'https://unpkg.com/jam-icons/css/jam.min.css'
+        document.head.appendChild(jamlib);
         resolve();
     });
 }
-async function init() {
+async function piklinit() {
     var modalbox = document.createElement('div');
-    modalbox.classList.add('modalbox');
+    modalbox.classList.add('pikl-maincontainer');
     document.body.appendChild(modalbox);
+    await piklload();
 }
+piklinit();

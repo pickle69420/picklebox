@@ -1,13 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://unpkg.com/jam-icons/css/jam.min.css");
-.modalbox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    width: 90%;
-    height: 90%;
+.pikl-taskicon {
+    @apply mx-2 transition-all text-green-600 hover:-translate-y-1 hover:text-green-500 relative text-[28px];
+    @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:-bottom-1 after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm;
+}
+.pikl-maincontainer {
+    @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%];
+}
+.pikl-taskbar {
+    @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] translate-x-[-50%] flex shadow-2xl;
+}
+.pikl-window {
+    @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl;
 }
