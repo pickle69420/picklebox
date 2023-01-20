@@ -1,0 +1,47 @@
+[
+    {
+        "displayname": "Home",
+        "working": "running",
+        "icon": "jam-home"
+    },
+    {
+        "displayname": "News",
+        "working": "running",
+        "icon": "jam-newspaper"
+    },
+    {
+        "displayname": "Search",
+        "working": "running",
+        "icon": "jam-search"
+    },
+    {
+        "displayname": "Games",
+        "working": "running",
+        "icon": "jam-gamepad-retro"
+    },
+    {
+        "displayname": "Chat",
+        "working": "running",
+        "icon": "jam-messages"
+    },
+    {
+        "displayname": "Watch",
+        "working": "running",
+        "icon": "jam-movie"
+    },
+    {
+        "displayname": "Read",
+        "working": "running",
+        "icon": "jam-book"
+    },
+    {
+        "displayname": "Music",
+        "working": "running",
+        "icon": "jam-music"
+    },
+    {
+        "displayname": "Settings",
+        "working": "running",
+        "icon": "jam-settings-alt"
+    }
+]

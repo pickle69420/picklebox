@@ -3,7 +3,7 @@
 @tailwind utilities;
 .pikl-taskicon {
     @apply mx-2 transition-all text-green-600 hover:-translate-y-1 hover:text-green-500 relative text-[28px];
-    @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:-bottom-1 after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm;
+    @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm;
 }
 .pikl-piklicon {
     @apply mx-2 transition-all hover:translate-y-0.5 translate-y-1.5 relative;
@@ -16,7 +16,7 @@
     @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] -translate-x-[50%] flex shadow-2xl;
 }
 .pikl-tasktooltip {
-    @apply w-auto py-1 px-3 bg-slate-900 absolute bottom-10 rounded-lg flex shadow-2xl font-bold;
+    @apply w-auto py-1 px-3 bg-slate-900 absolute bottom-10 rounded-lg flex shadow-2xl font-bold transition-all text-white text-base right-[50%] translate-x-[50%] -translate-y-1 scale-0;
 }
 .pikl-tasktooltip div:first-child {
     width: 0;

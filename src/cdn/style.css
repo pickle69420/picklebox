@@ -534,7 +534,6 @@ video {
 
 .pikl-taskicon::after {
   position: absolute;
-  bottom: -0.25rem;
   left: 0px;
   display: block;
   height: 2px;
@@ -645,8 +644,14 @@ video {
 .pikl-tasktooltip {
   position: absolute;
   bottom: 2.5rem;
+  right: 50%;
   display: flex;
   width: auto;
+  --tw-translate-x: 50%;
+  --tw-translate-y: -0.25rem;
+  --tw-scale-x: 0;
+  --tw-scale-y: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
@@ -654,10 +659,17 @@ video {
   padding-bottom: 0.25rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .pikl-tasktooltip div:first-child {
