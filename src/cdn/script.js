@@ -17,25 +17,33 @@ function piklload() {
                 var taskbar = document.getElementsByClassName('pikl-taskbar')[0];
                 var div = document.createElement('div');
                 var app = document.createElement('span');
-                var tooltip = document.getElementsByClassName('pikl-tasktooltip')[0];
+                var tooltip = document.createElement('div');
+                tooltip.classList.add('pikl-tasktooltip');
+                tooltip.innerHTML = data[i].displayname + `<div></div>`;
                 div.classList.add('pikl-taskicon');
                 app.classList.add('jam');
                 app.classList.add(data[i].icon);
                 taskbar.appendChild(div);
                 div.appendChild(app);
+                div.appendChild(tooltip);
+                console.log(div.lastChild);
                 div.addEventListener('mouseenter', (event) => {
-                    tooltip.innerHTML = data[i].displayname + `<div></div>`;
-                    tooltip.style.setProperty('--tw-scale-x','1');
-                    tooltip.style.setProperty('--tw-scale-y','1');
                     if(event.target.classList.contains('pikl-taskicon')) {
-                        event.target.prepend(tooltip);
+                        event.target.lastChild.style.setProperty('--tw-scale-x','1');
+                        event.target.lastChild.style.setProperty('--tw-scale-y','1');
                     } else {
-                        event.target.parentNode.prepend(tooltip);
+                        event.target.parentNode.lastChild.style.setProperty('--tw-scale-x','1');
+                        event.target.parentNode.lastChild.style.setProperty('--tw-scale-y','1');
                     }
                 });
                 div.addEventListener('mouseleave', (event) => {
-                    tooltip.style.setProperty('--tw-scale-x','0');
-                    tooltip.style.setProperty('--tw-scale-y','0');
+                    if(event.target.classList.contains('pikl-taskicon')) {
+                        event.target.lastChild.style.setProperty('--tw-scale-x','0');
+                        event.target.lastChild.style.setProperty('--tw-scale-y','0');
+                    } else {
+                        event.target.parentNode.lastChild.style.setProperty('--tw-scale-x','0');
+                        event.target.parentNode.lastChild.style.setProperty('--tw-scale-y','0');
+                    }
                 });
             }
         });
