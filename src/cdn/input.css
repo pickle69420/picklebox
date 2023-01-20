@@ -10,10 +10,21 @@
     @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:-bottom-1 after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm after:-translate-y-1.5;
 }
 .pikl-maincontainer {
-    @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%];
+    @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white;
 }
 .pikl-taskbar {
-    @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] translate-x-[-50%] flex shadow-2xl;
+    @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] -translate-x-[50%] flex shadow-2xl;
+}
+.pikl-tasktooltip {
+    @apply w-auto py-1 px-3 bg-slate-900 absolute bottom-10 rounded-lg flex shadow-2xl font-bold;
+}
+.pikl-tasktooltip div:first-child {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: #0F172A transparent transparent transparent;
+    @apply absolute left-[50%] -translate-x-[50%] translate-y-[27px];
 }
 .pikl-window {
     @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl;
