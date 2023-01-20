@@ -5,6 +5,10 @@
     @apply mx-2 transition-all text-green-600 hover:-translate-y-1 hover:text-green-500 relative text-[28px];
     @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:-bottom-1 after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm;
 }
+.pikl-piklicon {
+    @apply mx-2 transition-all hover:translate-y-0.5 translate-y-1.5 relative;
+    @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:-bottom-1 after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm after:-translate-y-1.5;
+}
 .pikl-maincontainer {
     @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%];
 }
