@@ -9,6 +9,15 @@
     @apply mx-2 transition-all hover:translate-y-0.5 translate-y-1.5 relative;
     @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:-bottom-1 after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm after:-translate-y-1.5;
 }
+.pikl-taskicon.active > span {
+    @apply bg-gray-700 rounded-md p-0.5 text-[24px];
+}
+.pikl-taskicon.active {
+    @apply after:scale-100 text-green-500 -translate-y-1;
+}
+.pikl-taskicon > span {
+    @apply transition-all;
+}
 .pikl-maincontainer {
     @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white;
 }
@@ -33,5 +42,32 @@
     @apply block;
 }
 .pikl-apptitle {
-    @apply text-2xl;
+    @apply text-2xl font-semibold;
+}
+.pikl-apptitle>.jam {
+    @apply rounded border border-green-600 bg-green-900 items-center justify-center text-green-400 text-xl p-0.5 mr-2;
+}
+.pikl-loadingimg > svg {
+    width: 100px;
+    height: 100px;
+}
+.pikl-loadingimg > svg > path {
+    stroke-width: 10;
+    stroke-dasharray: 1667;
+    stroke-dashoffset: 1667;
+    animation: pikl-animate-loadingimg 2s linear infinite forwards;
+}
+@keyframes pikl-animate-loadingimg {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    40% {
+        stroke-dashoffset: 1667;
+    }
+    80% {
+        stroke-dashoffset: 3334;
+    }
+    100% {
+        stroke-dashoffset: 3334;
+    }
 }

@@ -28,7 +28,6 @@ function piklload() {
                 .then((response) => response.text())
                 .then((data) => {
                     document.getElementById('pikl-' + array[i].displayname.toLowerCase() + 'icon').innerHTML = data;
-                    console.log(data);
                 });
                 div.classList.add('pikl-taskicon');
                 app.classList.add('jam');
@@ -38,6 +37,7 @@ function piklload() {
                 div.appendChild(tooltip);
                 modalbox.appendChild(window);
                 document.getElementById('pikl-homeicon').classList.add('active');
+                taskbar.getElementsByClassName('jam-home')[0].parentNode.classList.add('active');
                 div.addEventListener('mouseenter', (event) => {
                     if(event.target.classList.contains('pikl-taskicon')) {
                         event.target.lastChild.style.setProperty('--tw-scale-x','1');
@@ -59,6 +59,13 @@ function piklload() {
                 div.addEventListener('click',(event) => {
                     document.getElementsByClassName('pikl-window active')[0].classList.remove('active');
                     document.getElementById('pikl-' + data[i].displayname.toLowerCase() + 'icon').classList.add('active');
+                    if(event.target.classList.contains('pikl-taskicon')) {
+                        document.getElementsByClassName('pikl-taskicon active')[0].classList.remove('active');
+                        event.target.classList.add('active');
+                    } else {
+                        document.getElementsByClassName('pikl-taskicon active')[0].classList.remove('active');
+                        event.target.parentNode.classList.add('active');
+                    }
                 })
             }
         });
