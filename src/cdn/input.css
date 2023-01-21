@@ -22,7 +22,9 @@
     @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white;
 }
 .pikl-taskbar {
-    @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] -translate-x-[50%] flex shadow-2xl;
+    @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] flex shadow-2xl transition-transform ease-out duration-300;
+    --pikl-taskbar-translate: 130%;
+    transform: translate(-50%,var(--pikl-taskbar-translate));
 }
 .pikl-tasktooltip {
     @apply w-auto py-1 px-3 bg-slate-900 absolute bottom-10 rounded-lg flex shadow-2xl font-bold transition-all text-white text-base right-[50%] translate-x-[50%] -translate-y-1 scale-0;
@@ -36,7 +38,9 @@
     @apply absolute left-[50%] -translate-x-[50%] translate-y-[27px];
 }
 .pikl-window {
-    @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl hidden p-8;
+    @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl hidden p-8 transition-transform ease-out duration-300;
+    --pikl-window-translate: -120%;
+    transform: translateY(var(--pikl-window-translate));
 }
 .pikl-window.active {
     @apply block;
@@ -47,14 +51,17 @@
 .pikl-apptitle>.jam {
     @apply rounded border border-green-600 bg-green-900 items-center justify-center text-green-400 text-xl p-0.5 mr-2;
 }
+.pikl-loadingimg {
+    @apply rounded-full bg-gray-900 p-[40px] w-[300px] h-[300px] border-gray-700 border-4 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] transition-all shadow-lg;
+}
 .pikl-loadingimg > svg {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }
 .pikl-loadingimg > svg > path {
     stroke-width: 10;
-    stroke-dasharray: 1667;
-    stroke-dashoffset: 1667;
+    stroke-dasharray: 1670;
+    stroke-dashoffset: 1670;
     animation: pikl-animate-loadingimg 2s linear infinite forwards;
 }
 @keyframes pikl-animate-loadingimg {
@@ -62,15 +69,15 @@
         stroke-dashoffset: 0;
     }
     40% {
-        stroke-dashoffset: 1667;
+        stroke-dashoffset: 1670;
     }
     50% {
-        stroke-dashoffset: 1667;
+        stroke-dashoffset: 1670;
     }
     90% {
-        stroke-dashoffset: 3334;
+        stroke-dashoffset: 3340;
     }
     100% {
-        stroke-dashoffset: 3334;
+        stroke-dashoffset: 3340;
     }
 }
