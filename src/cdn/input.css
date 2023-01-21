@@ -27,5 +27,11 @@
     @apply absolute left-[50%] -translate-x-[50%] translate-y-[27px];
 }
 .pikl-window {
-    @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl;
+    @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl hidden p-8;
+}
+.pikl-window.active {
+    @apply block;
+}
+.pikl-apptitle {
+    @apply text-2xl;
 }

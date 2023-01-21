@@ -15,18 +15,29 @@ function piklload() {
         .then((data) => {
             for (let i = 0; i < data.length; i++) {
                 var taskbar = document.getElementsByClassName('pikl-taskbar')[0];
+                var array = data;
+                var window = document.createElement('div');
                 var div = document.createElement('div');
                 var app = document.createElement('span');
                 var tooltip = document.createElement('div');
                 tooltip.classList.add('pikl-tasktooltip');
                 tooltip.innerHTML = data[i].displayname + `<div></div>`;
+                window.classList.add('pikl-window');
+                window.id = 'pikl-' + data[i].displayname.toLowerCase() + 'icon';
+                fetch(data[i].url)
+                .then((response) => response.text())
+                .then((data) => {
+                    document.getElementById('pikl-' + array[i].displayname.toLowerCase() + 'icon').innerHTML = data;
+                    console.log(data);
+                });
                 div.classList.add('pikl-taskicon');
                 app.classList.add('jam');
                 app.classList.add(data[i].icon);
                 taskbar.appendChild(div);
                 div.appendChild(app);
                 div.appendChild(tooltip);
-                console.log(div.lastChild);
+                modalbox.appendChild(window);
+                document.getElementById('pikl-homeicon').classList.add('active');
                 div.addEventListener('mouseenter', (event) => {
                     if(event.target.classList.contains('pikl-taskicon')) {
                         event.target.lastChild.style.setProperty('--tw-scale-x','1');
@@ -45,15 +56,20 @@ function piklload() {
                         event.target.parentNode.lastChild.style.setProperty('--tw-scale-y','0');
                     }
                 });
+                div.addEventListener('click',(event) => {
+                    document.getElementsByClassName('pikl-window active')[0].classList.remove('active');
+                    document.getElementById('pikl-' + data[i].displayname.toLowerCase() + 'icon').classList.add('active');
+                })
             }
         });
         resolve();
     });
 }
-async function piklinit() {
+function piklinit() {
     var modalbox = document.createElement('div');
     modalbox.classList.add('pikl-maincontainer');
     document.body.appendChild(modalbox);
-    await piklload();
+    piklload();
+    console.log('PickleHub is loading...');
 }
 piklinit();

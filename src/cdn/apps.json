@@ -2,46 +2,55 @@
     {
         "displayname": "Home",
         "working": "running",
-        "icon": "jam-home"
+        "icon": "jam-home",
+        "url": "./cdn/pages/home.html"
     },
     {
         "displayname": "News",
         "working": "running",
-        "icon": "jam-newspaper"
+        "icon": "jam-newspaper",
+        "url": "./cdn/pages/news.html"
     },
     {
         "displayname": "Search",
         "working": "running",
-        "icon": "jam-search"
+        "icon": "jam-search",
+        "url": "./cdn/pages/browser.html"
     },
     {
         "displayname": "Games",
         "working": "running",
-        "icon": "jam-gamepad-retro"
+        "icon": "jam-gamepad-retro",
+        "url": "./cdn/pages/gamelist.html"
     },
     {
         "displayname": "Chat",
         "working": "running",
-        "icon": "jam-messages"
+        "icon": "jam-messages",
+        "url": "./cdn/pages/chatmain.html"
     },
     {
         "displayname": "Watch",
         "working": "running",
-        "icon": "jam-movie"
+        "icon": "jam-movie",
+        "url": "./cdn/pages/watchlist.html"
     },
     {
         "displayname": "Read",
         "working": "running",
-        "icon": "jam-book"
+        "icon": "jam-book",
+        "url": "./cdn/pages/booklist.html"
     },
     {
         "displayname": "Music",
         "working": "running",
-        "icon": "jam-music"
+        "icon": "jam-music",
+        "url": "./cdn/pages/music.html"
     },
     {
         "displayname": "Settings",
         "working": "running",
-        "icon": "jam-settings-alt"
+        "icon": "jam-settings-alt",
+        "url": "./cdn/pages/settings.html"
     }
 ]

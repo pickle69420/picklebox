@@ -688,12 +688,23 @@ video {
 .pikl-window {
   margin-left: auto;
   margin-right: auto;
+  display: none;
   height: 83%;
   width: 90%;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  padding: 2rem;
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.pikl-window.active {
+  display: block;
+}
+
+.pikl-apptitle {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
