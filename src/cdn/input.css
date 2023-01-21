@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body.pikl-winmaximized {
+    overflow: hidden;
+}
 .pikl-taskicon {
     @apply mx-2 transition-all text-green-600 hover:-translate-y-1 hover:text-green-500 relative text-[28px];
     @apply after:content-[''] after:absolute after:block after:w-full after:h-[2px] after:left-0 after:bg-green-600 after:hover:bg-green-500 after:hover:scale-x-100 after:scale-x-0 after:origin-top-left after:transition after:ease-in-out after:duration-300 after:rounded-sm;
@@ -26,6 +29,19 @@
     --pikl-taskbar-translate: 130%;
     transform: translate(-50%,var(--pikl-taskbar-translate));
 }
+.pikl-taskbar.minimized {
+    @apply opacity-20 rounded-full right-0 left-auto transition-all;
+    transform: translate(200%,var(--pikl-taskbar-translate));
+}
+.pikl-taskbar.minimized:hover {
+    @apply opacity-50;
+}
+.pikl-taskbar.minimized > .pikl-taskicon {
+    @apply hidden;
+}
+.pikl-taskbar.minimized > .pikl-piklicon {
+    @apply after:hidden translate-y-0.5 -mx-1;
+}
 .pikl-tasktooltip {
     @apply w-auto py-1 px-3 bg-slate-900 absolute bottom-10 rounded-lg flex shadow-2xl font-bold transition-all text-white text-base right-[50%] translate-x-[50%] -translate-y-1 scale-0;
 }
@@ -38,9 +54,10 @@
     @apply absolute left-[50%] -translate-x-[50%] translate-y-[27px];
 }
 .pikl-window {
-    @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl hidden p-8 transition-transform ease-out duration-300;
+    @apply w-[90%] h-[83%] bg-gray-800 mx-auto rounded-lg shadow-2xl hidden p-8 transition-transform ease-out duration-200 origin-bottom-right;
     --pikl-window-translate: -120%;
-    transform: translateY(var(--pikl-window-translate));
+    --pikl-window-scale: 1;
+    transform: translateY(var(--pikl-window-translate)) scale(var(--pikl-window-scale));
 }
 .pikl-window.active {
     @apply block;

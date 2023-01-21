@@ -89,8 +89,33 @@ function piklload() {
                         event.target.parentNode.classList.add('active');
                     }
                 })
+                var pickleminimizebtn = document.getElementsByClassName('pikl-piklicon')[0];
+                pickleminimizebtn.addEventListener('click',(event) => {
+                    var piklbtn;
+                    const windowelems = document.getElementsByClassName('pikl-window');
+                    const taskbarelems = document.getElementsByClassName('pikl-taskbar')[0];
+                    if(event.target.classList.contains('pikl-piklicon')) {
+                        piklbtn = event.target;
+                    } else {
+                        piklbtn = event.target.parentNode;
+                    }
+                    if (document.body.classList.contains('pikl-winmaximized')) {
+                        for(var i =0, il = windowelems.length;i<il;i++){
+                            windowelems[i].style.setProperty('--pikl-window-scale','0');
+                        }
+                        taskbarelems.classList.add('minimized');
+                        document.body.classList.remove('pikl-winmaximized');
+                    } else {
+                        for(var i =0, il = windowelems.length;i<il;i++){
+                            windowelems[i].style.setProperty('--pikl-window-scale','1');
+                        }
+                        taskbarelems.classList.remove('minimized');
+                        document.body.classList.add('pikl-winmaximized');
+                    }
+                });
             }
         });
+        document.body.classList.add('pikl-winmaximized');
         resolve();
     });
 }

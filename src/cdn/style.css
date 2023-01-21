@@ -513,6 +513,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+body.pikl-winmaximized {
+  overflow: hidden;
+}
+
 .pikl-taskicon {
   position: relative;
   margin-left: 0.5rem;
@@ -673,6 +677,37 @@ video {
   transform: translate(-50%,var(--pikl-taskbar-translate));
 }
 
+.pikl-taskbar.minimized {
+  right: 0px;
+  left: auto;
+  border-radius: 9999px;
+  opacity: 0.2;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transform: translate(200%,var(--pikl-taskbar-translate));
+}
+
+.pikl-taskbar.minimized:hover {
+  opacity: 0.5;
+}
+
+.pikl-taskbar.minimized > .pikl-taskicon {
+  display: none;
+}
+
+.pikl-taskbar.minimized > .pikl-piklicon {
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+  --tw-translate-y: 0.125rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.pikl-taskbar.minimized > .pikl-piklicon::after {
+  content: var(--tw-content);
+  display: none;
+}
+
 .pikl-tasktooltip {
   position: absolute;
   bottom: 2.5rem;
@@ -723,6 +758,7 @@ video {
   display: none;
   height: 83%;
   width: 90%;
+  transform-origin: bottom right;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -732,10 +768,11 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   --pikl-window-translate: -120%;
-  transform: translateY(var(--pikl-window-translate));
+  --pikl-window-scale: 1;
+  transform: translateY(var(--pikl-window-translate)) scale(var(--pikl-window-scale));
 }
 
 .pikl-window.active {
