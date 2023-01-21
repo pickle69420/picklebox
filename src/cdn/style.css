@@ -776,7 +776,11 @@ video {
     stroke-dashoffset: 1667;
   }
 
-  80% {
+  50% {
+    stroke-dashoffset: 1667;
+  }
+
+  90% {
     stroke-dashoffset: 3334;
   }
 
