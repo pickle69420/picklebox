@@ -81,6 +81,12 @@ body.pikl-winmaximized {
     stroke-dashoffset: 1670;
     animation: pikl-animate-loadingimg 2s linear infinite forwards;
 }
+.pikl-devalert, .pikl-downalert {
+    @apply top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] absolute w-96;
+}
+.pikl-devalert > h1, .pikl-downalert > h1 {
+    @apply text-2xl font-bold;
+}
 @keyframes pikl-animate-loadingimg {
     0% {
         stroke-dashoffset: 0;

@@ -1,4 +1,7 @@
 (async function(){
+	var supa = document.createElement('script');
+    supa.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+	document.head.appendChild(supa);
     var jselem = document.createElement('script');
     await fetch('./cdn/script.js')
 	.then((response) => response.text())

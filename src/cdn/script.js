@@ -30,7 +30,7 @@ function piklload() {
 	    });
         var jamlib = document.createElement('link');
         jamlib.rel = 'stylesheet';
-        jamlib.href = 'https://unpkg.com/jam-icons/css/jam.min.css'
+        jamlib.href = './cdn/jam/jam.min.css'
         document.head.appendChild(jamlib);
         fetch('./cdn/apps.json')
         .then((response) => response.json())
@@ -46,11 +46,21 @@ function piklload() {
                 tooltip.innerHTML = data[i].displayname + `<div></div>`;
                 window.classList.add('pikl-window');
                 window.id = 'pikl-' + data[i].displayname.toLowerCase() + 'icon';
-                fetch(data[i].url)
-                .then((response) => response.text())
-                .then((data) => {
-                    document.getElementById('pikl-' + array[i].displayname.toLowerCase() + 'icon').innerHTML = data;
-                });
+                switch(data[i].status) {
+                    case 'running':
+                        fetch(data[i].url)
+                        .then((response) => response.text())
+                        .then((data) => {
+                            document.getElementById('pikl-' + array[i].displayname.toLowerCase() + 'icon').innerHTML = data;
+                        });
+                        break;
+                    case 'dev':
+                        window.innerHTML = `<div class='pikl-devalert'><h1>This service is in development.</h1>This service is in development. Our team is tirelessly working to bring you this feature and it will be out soon. Check back later or follow our github for updates.</div>`;
+                        break;
+                    case 'down':
+                        window.innerHTML = `<div class='pikl-downalert'><h1>This service is currently down.</h1>This service is currently down. The servers for this service are currently not functioning properly. Don't worry, your data won't be deleted. Just check back later when we fix the issue.</div>`;
+                        break;
+                }
                 div.classList.add('pikl-taskicon');
                 app.classList.add('jam');
                 app.classList.add(data[i].icon);
