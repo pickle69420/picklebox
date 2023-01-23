@@ -22,10 +22,10 @@ body.pikl-winmaximized {
     @apply transition-all;
 }
 .pikl-maincontainer {
-    @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white;
+    @apply w-[80%] h-[95%] fixed top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white z-[10000000];
 }
 .pikl-taskbar {
-    @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] flex shadow-2xl transition-transform ease-out duration-300;
+    @apply w-auto px-6 py-5 bg-gray-800 absolute bottom-0 rounded-lg left-[50%] flex shadow-2xl transition-transform ease-out duration-300 z-[10000010];
     --pikl-taskbar-translate: 130%;
     transform: translate(-50%,var(--pikl-taskbar-translate));
 }
@@ -82,7 +82,7 @@ body.pikl-winmaximized {
     animation: pikl-animate-loadingimg 2s linear infinite forwards;
 }
 .pikl-devalert, .pikl-downalert {
-    @apply top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] absolute w-96 border-4 p-3 rounded-lg;
+    @apply top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] absolute w-96 border-[3px] p-3 rounded-lg;
 }
 .pikl-devalert > h1, .pikl-downalert > h1 {
     @apply text-2xl font-bold mb-2;
