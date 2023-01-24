@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,body {
+    @apply text-white;
+}
+.pikl-apptitle {
+    @apply text-2xl font-semibold;
+}
+.pikl-apptitle>.jam {
+    @apply rounded border border-green-600 bg-green-900 items-center justify-center text-green-400 text-xl p-0.5 mr-2;
+}
+.pikl-loadingimg {
+    @apply rounded-full bg-gray-900 p-[40px] w-[300px] h-[300px] border-gray-700 border-4 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] transition-all shadow-lg;
+}
+.pikl-loadingimg > svg {
+    width: 200px;
+    height: 200px;
+}
+.pikl-loadingimg > svg > path {
+    stroke-width: 10;
+    stroke-dasharray: 1670;
+    stroke-dashoffset: 1670;
+    animation: pikl-animate-loadingimg 2s linear infinite forwards;
+}
+@keyframes pikl-animate-loadingimg {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    40% {
+        stroke-dashoffset: 1670;
+    }
+    50% {
+        stroke-dashoffset: 1670;
+    }
+    90% {
+        stroke-dashoffset: 3340;
+    }
+    100% {
+        stroke-dashoffset: 3340;
+    }
+}
