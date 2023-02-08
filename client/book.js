@@ -1,6 +1,5 @@
 (async function(){
     var jselem = document.createElement('script');
-	jselem.type = 'module';
     await fetch('./cdn/script.js')
 	.then((response) => response.text())
 	.then((data) => {
