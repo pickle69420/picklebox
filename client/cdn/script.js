@@ -33,7 +33,6 @@ function piklload() {
         .then((data) => {
             for (let i = 0; i < data.length; i++) {
                 var taskbar = document.getElementsByClassName('pikl-taskbar')[0];
-                var array = data;
                 var window = document.createElement('div');
                 var div = document.createElement('div');
                 var app = document.createElement('span');
@@ -41,12 +40,11 @@ function piklload() {
                 tooltip.classList.add('pikl-tasktooltip');
                 tooltip.innerHTML = data[i].displayname + `<div></div>`;
                 window.classList.add('pikl-window');
-                window.id = 'pikl-' + data[i].displayname.toLowerCase() + 'icon';
+                window.id = 'pikl-' + data[i].displayname.toLowerCase() + 'win';
                 switch(data[i].status) {
                     case 'running':
                         var frame = document.createElement('iframe');
                         frame.classList.add('pikl-appframe');
-                        frame.src = data[i].url;
                         window.appendChild(frame);
                         break;
                     case 'dev':
@@ -63,8 +61,11 @@ function piklload() {
                 div.appendChild(app);
                 div.appendChild(tooltip);
                 modalbox.appendChild(window);
-                document.getElementById('pikl-homeicon').classList.add('active');
+                document.getElementById('pikl-homewin').classList.add('active');
                 taskbar.getElementsByClassName('jam-home')[0].parentNode.classList.add('active');
+                var theframe = document.querySelector('#pikl-' + data[i].displayname.toLowerCase() + 'win > .pikl-appframe');
+                theframe.src = 'https://edupoint.com/';
+                theframe.contentDocument.location = data[i].url;
                 div.addEventListener('mouseenter', (event) => {
                     if(event.target.classList.contains('pikl-taskicon')) {
                         event.target.lastChild.style.setProperty('--tw-scale-x','1');
@@ -85,7 +86,7 @@ function piklload() {
                 });
                 div.addEventListener('click',(event) => {
                     document.getElementsByClassName('pikl-window active')[0].classList.remove('active');
-                    document.getElementById('pikl-' + data[i].displayname.toLowerCase() + 'icon').classList.add('active');
+                    document.getElementById('pikl-' + data[i].displayname.toLowerCase() + 'win').classList.add('active');
                     if(event.target.classList.contains('pikl-taskicon')) {
                         document.getElementsByClassName('pikl-taskicon active')[0].classList.remove('active');
                         event.target.classList.add('active');

@@ -25,31 +25,31 @@
     },
     {
         "displayname": "Chat",
-        "status": "dev",
+        "status": "running",
         "icon": "jam-messages",
         "url": "https://pickle69420-fantastic-umbrella-57xx49vx59xh4gjg-5173.preview.app.github.dev/pages/chat"
     },
     {
         "displayname": "Watch",
-        "status": "down",
+        "status": "running",
         "icon": "jam-movie",
         "url": "https://pickle69420-fantastic-umbrella-57xx49vx59xh4gjg-5173.preview.app.github.dev/pages/watch"
     },
     {
         "displayname": "Read",
-        "status": "dev",
+        "status": "running",
         "icon": "jam-book",
         "url": "https://pickle69420-fantastic-umbrella-57xx49vx59xh4gjg-5173.preview.app.github.dev/pages/read"
     },
     {
         "displayname": "Music",
-        "status": "dev",
+        "status": "running",
         "icon": "jam-music",
         "url": "https://pickle69420-fantastic-umbrella-57xx49vx59xh4gjg-5173.preview.app.github.dev/pages/music"
     },
     {
         "displayname": "Settings",
-        "status": "dev",
+        "status": "running",
         "icon": "jam-settings-alt",
         "url": "https://pickle69420-fantastic-umbrella-57xx49vx59xh4gjg-5173.preview.app.github.dev/pages/settings"
     }
