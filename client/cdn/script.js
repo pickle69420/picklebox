@@ -1,3 +1,4 @@
+var baseappurl = 'https://www.edulive.cloudns.ph';
 function piklload() {
     return new Promise((resolve,reject)=>{
         var modalbox = document.getElementsByClassName('pikl-maincontainer')[0];
@@ -65,7 +66,7 @@ function piklload() {
                 taskbar.getElementsByClassName('jam-home')[0].parentNode.classList.add('active');
                 var theframe = document.querySelector('#pikl-' + data[i].displayname.toLowerCase() + 'win > .pikl-appframe');
                 theframe.src = 'https://edupoint.com/';
-                theframe.contentDocument.location = data[i].url;
+                theframe.contentDocument.location = baseappurl + data[i].url;
                 div.addEventListener('mouseenter', (event) => {
                     if(event.target.classList.contains('pikl-taskicon')) {
                         event.target.lastChild.style.setProperty('--tw-scale-x','1');
