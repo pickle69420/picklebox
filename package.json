@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-    "start": "node build"
+    "start": "node index.js"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^1.0.0",
@@ -25,7 +25,9 @@
   },
   "type": "module",
   "dependencies": {
-    "@supabase/supabase-js": "^2.4.1"
+    "@supabase/supabase-js": "^2.4.1",
+    "@tomphttp/bare-server-node": "^1.2.5",
+    "express": "^4.18.2"
   },
-  "module": "index.ts"
+  "module": "index.js"
 }
