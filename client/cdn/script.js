@@ -1,4 +1,4 @@
-var baseappurl = 'https://www.edulive.cloudns.ph';
+var baseappurl = 'https://5173-pickle69420-picklebox-srko6awsp5o.ws-us89.gitpod.io/';
 function piklload() {
     return new Promise((resolve,reject)=>{
         var modalbox = document.getElementsByClassName('pikl-maincontainer')[0];
