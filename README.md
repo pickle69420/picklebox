@@ -2,7 +2,9 @@
 
 A new type of proxy that is entirely in a bookmarklet! It is still in development. Follow my github account or watch this repository to get updates in your feed.
 
-RoadMap:
+ANNOUNCEMENT: I was planning to release the Public Beta by the end of March 2023 but i am currently expierencing slowdowns. Sorry for the wait.
+
+Road Map:
 
 - ✔Create the Client with many features involved
 - ✔Create the Server with a proxy installed
