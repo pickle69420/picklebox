@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 html,body {
-    @apply text-white;
+    @apply text-white w-full h-full;
 }
 .pikl-apptitle {
     @apply text-2xl font-semibold;

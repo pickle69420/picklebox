@@ -6,6 +6,9 @@
     export let url;
     export let search = "https://google.com/search?q=";
     const xor = {
+        /**
+         * @param {string} str
+         */
         encode(str) {
             if (!str) return str;
             return encodeURIComponent(
@@ -18,6 +21,9 @@
                     .join('')
             );
         },
+        /**
+         * @param {{ split: (arg0: string) => [any, ...any[]]; }} str
+         */
         decode(str) {
             if (!str) return str;
             let [input, ...search] = str.split('?');
@@ -42,4 +48,10 @@
     } else { url = new URL(search).origin }
 </script>
 
-<iframe src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy"></iframe>
+<iframe id="ProxFrame" src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy"></iframe>
+
+<style lang="postcss">
+    iframe {
+        @apply w-full flex-1;
+    }
+</style>
