@@ -18,3 +18,7 @@ Road Map:
 - Add extra features
 - 👌Release 1.0.0
 - Other stuff (not planned) (yet)
+
+I hope people are excited for this, so I want to give you guys a little update with each commit:
+Here is what the UI looks like right now (feel free to put suggestions in the issues tab):
+![PickleHub](https://raw.githubusercontent.com/pickle69420/picklebox/main/currentui.png "PickleHub")

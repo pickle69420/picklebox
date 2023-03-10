@@ -1,5 +1,6 @@
 <script>
     import ProxFrame from './ProxFrame.svelte';
+    export let active = false;
     /**
      * @type {HTMLInputElement}
      */
@@ -11,6 +12,7 @@
     /**
      * @param {{ keyCode: number; }} e
      */
+
     function handleURLSubmit(e) {
         if (e.keyCode == 13) { 
           submittedvalue = inputvalue;
@@ -18,7 +20,7 @@
     }
 </script>
 
-<div class="flex">
+<div class={active == true ? 'flex border-b-[1px] border-b-green-800 pb-3 pt-1': 'flex border-b-[1px] border-b-green-800 pb-3 pt-1 binactive'}>
     <button class="browsertab-btn jam jam-arrow-left"></button>
     <button class="browsertab-btn jam jam-arrow-right"></button>
     <button class="browsertab-btn jam jam-refresh"></button>
@@ -43,5 +45,8 @@
     }
     .browsertab-btn {
         @apply hover:bg-green-900 transition-all py-0.5 px-2 rounded-sm mx-0.5 text-green-600;
+    }
+    .binactive {
+        @apply hidden;
     }
 </style>
