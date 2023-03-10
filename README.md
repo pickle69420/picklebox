@@ -1,5 +1,7 @@
 # PickleHub
 
+🔥 Excited? Leave a ⭐ (top right corner)
+
 A new type of proxy that is entirely in a bookmarklet! It is still in development. Follow my github account or watch this repository to get updates in your feed.
 
 ANNOUNCEMENT: I was planning to release the Public Beta by the end of March 2023 but i am currently expierencing slowdowns. Sorry for the wait.
