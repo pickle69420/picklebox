@@ -2,6 +2,10 @@
     import ProxFrame from './ProxFrame.svelte';
     export let active = false;
     /**
+     * @type {any}
+     */
+    let newURL;
+    /**
      * @type {HTMLInputElement}
      */
      let inputvalue;
@@ -20,21 +24,22 @@
     }
 </script>
 
-<div class={active == true ? 'flex border-b-[1px] border-b-green-800 pb-3 pt-1': 'flex border-b-[1px] border-b-green-800 pb-3 pt-1 binactive'}>
-    <button class="browsertab-btn jam jam-arrow-left"></button>
-    <button class="browsertab-btn jam jam-arrow-right"></button>
-    <button class="browsertab-btn jam jam-refresh"></button>
-    <div class='browsertab-inputcontainer'>
-        <button class="browsertab-btn jam jam-database"></button>
-        <input class='browsertab-input' on:keyup={handleURLSubmit} bind:value={inputvalue}/>
-        <button class="browsertab-btn jam jam-star"></button>
+<div class={active == true ? '' : 'binactive'}>
+    <div class='flex border-b-[1px] border-b-green-800 pb-3 pt-1'>
+        <button class="browsertab-btn jam jam-arrow-left"></button>
+        <button class="browsertab-btn jam jam-arrow-right"></button>
+        <button class="browsertab-btn jam jam-refresh"></button>
+        <div class='browsertab-inputcontainer'>
+            <button class="browsertab-btn jam jam-database"></button>
+            <input class='browsertab-input' on:keyup={handleURLSubmit} bind:value={inputvalue}/>
+            <button class="browsertab-btn jam jam-star"></button>
+        </div>
+        <button class="browsertab-btn jam jam-more-horizontal"></button>
     </div>
-    <button class="browsertab-btn jam jam-more-horizontal"></button>
+    {#if submittedvalue != null}
+	    <ProxFrame url={submittedvalue} bind:proxurl={inputvalue}/>
+    {/if}
 </div>
-
-{#if submittedvalue != null}
-	<ProxFrame url={submittedvalue}/>
-{/if}
 
 <style lang="postcss">
     .browsertab-inputcontainer {

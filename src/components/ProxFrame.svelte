@@ -5,6 +5,19 @@
     */
     export let url;
     export let search = "https://google.com/search?q=";
+    export let proxurl;
+    //export let title;
+    /**
+     * @type {HTMLIFrameElement}
+     */
+    let proxframe;
+    function setInfo() {
+        let contwin = proxframe.contentWindow;
+        proxurl = xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'));
+        //if (contwin?.document.getElementsByTagName('title')[0].firstChild.textContent) {
+        //    title = contwin?.document.getElementsByTagName('title')[0].firstChild.textContent;
+        //}
+    }
     const xor = {
         /**
          * @param {string} str
@@ -48,7 +61,7 @@
     } else { url = new URL(search).origin }
 </script>
 
-<iframe id="ProxFrame" src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy"></iframe>
+<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" onLoad="alert(this.contentWindow.location.href);"></iframe>
 
 <style lang="postcss">
     iframe {
