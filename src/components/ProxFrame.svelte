@@ -82,7 +82,7 @@
     }
 </script>
 
-<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load|once={setInfo}></iframe>
+<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load|once={startLoop}></iframe>
 
 <style lang="postcss">
     iframe {
