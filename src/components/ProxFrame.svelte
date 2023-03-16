@@ -72,9 +72,17 @@
         })(proxframe.contentWindow);
         console.log('INFO LOOP STARTED');
     }*/
+    function startLoop() {
+        let contwin = proxframe.contentWindow;
+        setInterval(function() {
+            if (proxurl != xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'))) {
+                setInfo();
+            }
+        }, 500);
+    }
 </script>
 
-<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load={setInfo}></iframe>
+<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load|once={setInfo}></iframe>
 
 <style lang="postcss">
     iframe {
