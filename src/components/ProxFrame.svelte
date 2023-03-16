@@ -69,6 +69,7 @@
             return pushState.apply(history, arguments);
             };
         })(proxframe.contentWindow);
+        console.log('INFO LOOP STARTED');
     }
 </script>
 
