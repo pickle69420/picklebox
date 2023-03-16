@@ -60,7 +60,7 @@
         //    title = contwin?.document.getElementsByTagName('title')[0].firstChild.textContent;
         //}
     }
-    function startInfoLoop() {
+    /*function startInfoLoop() {
         (function(history){
             var pushState = history.pushState;
             history.pushState = function(state) {
@@ -70,10 +70,10 @@
             };
         })(proxframe.contentWindow);
         console.log('INFO LOOP STARTED');
-    }
+    }*/
 </script>
 
-<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load={startInfoLoop}></iframe>
+<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load={setInfo}></iframe>
 
 <style lang="postcss">
     iframe {
