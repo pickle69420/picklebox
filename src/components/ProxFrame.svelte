@@ -59,6 +59,7 @@
         //if (contwin?.document.getElementsByTagName('title')[0].firstChild.textContent) {
         //    title = contwin?.document.getElementsByTagName('title')[0].firstChild.textContent;
         //}
+        console.log('I sed the info dad');
     }
     /*function startInfoLoop() {
         (function(history){
