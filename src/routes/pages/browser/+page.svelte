@@ -30,7 +30,7 @@
     }
 </script>
 
-<div class="flex flex-col w-full h-full">
+<div>
     <div class="browser-tabs">
         <div class="browser-tab-cont flex">
             {#each tabs as tab, index (tab.id)}

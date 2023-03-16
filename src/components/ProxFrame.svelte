@@ -11,13 +11,6 @@
      * @type {HTMLIFrameElement}
      */
     let proxframe;
-    function setInfo() {
-        let contwin = proxframe.contentWindow;
-        proxurl = xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'));
-        //if (contwin?.document.getElementsByTagName('title')[0].firstChild.textContent) {
-        //    title = contwin?.document.getElementsByTagName('title')[0].firstChild.textContent;
-        //}
-    }
     const xor = {
         /**
          * @param {string} str
@@ -59,9 +52,27 @@
         if (!isUrl(url)) url = search + url;
         else if (!(url.startsWith('https://') || url.startsWith('http://'))) { url = 'http://' + url; };
     } else { url = new URL(search).origin }
+    proxurl = url;
+    function setInfo() {
+        let contwin = proxframe.contentWindow;
+        proxurl = xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'));
+        //if (contwin?.document.getElementsByTagName('title')[0].firstChild.textContent) {
+        //    title = contwin?.document.getElementsByTagName('title')[0].firstChild.textContent;
+        //}
+    }
+    function startInfoLoop() {
+        (function(history){
+            var pushState = history.pushState;
+            history.pushState = function(state) {
+            // YOUR CUSTOM HOOK / FUNCTION
+            console.log('I am called from pushStateHook');
+            return pushState.apply(history, arguments);
+            };
+        })(proxframe.contentWindow);
+    }
 </script>
 
-<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" onLoad="alert(this.contentWindow.location.href);"></iframe>
+<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load={startInfoLoop}></iframe>
 
 <style lang="postcss">
     iframe {
