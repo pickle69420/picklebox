@@ -8,18 +8,18 @@ ANNOUNCEMENT: I was planning to release the Public Beta by the end of March 2023
 
 Road Map:
 
-- ✔Create the Client with many features involved
-- ✔Create the Server with a proxy installed
-- ⚒Setup a basic proxy browser
-- Setup Accounts
-- Settings and other tweaks
-- Setup News
-- 👌Release Public Beta 0.7.0
-- Add Game files
-- Create the game browser and launcher
-- Add extra features
-- 👌Release 1.0.0
-- Other stuff (not planned) (yet)
+- ``👍`` Create the Client with many features involved
+- ``👍`` Create the Server with a proxy installed
+- ``✍`` Setup a basic proxy browser
+- ``🦵``Setup Accounts
+- ``🦵`` Settings and other tweaks
+- ``🦵`` Setup News
+- ``👌`` Release Public Beta 0.7.0
+- ``🦵`` Add Game files
+- ``🦵`` Create the game browser and launcher
+- ``🦵`` Add extra features
+- ``👌`` Release 1.0.0
+- ``🦵`` Other stuff (not planned) (yet)
 
 I hope people are excited for this, so I want to give you guys a little update with each commit:
 Here is what the UI looks like right now (feel free to put suggestions in the issues tab):
