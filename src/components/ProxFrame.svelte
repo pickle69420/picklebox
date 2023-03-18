@@ -1,5 +1,6 @@
 <script>
     import { page } from '$app/stores';
+    import { onMount } from 'svelte';
     /**
     * @type {String}
     */
@@ -61,28 +62,17 @@
         //}
         console.log('I sed the info dad');
     }
-    /*function startInfoLoop() {
-        (function(history){
-            var pushState = history.pushState;
-            history.pushState = function(state) {
-            // YOUR CUSTOM HOOK / FUNCTION
-            console.log('I am called from pushStateHook');
-            return pushState.apply(history, arguments);
-            };
-        })(proxframe.contentWindow);
-        console.log('INFO LOOP STARTED');
-    }*/
-    function startLoop() {
-        let contwin = proxframe.contentWindow;
+    onMount(() => {
+		let contwin = proxframe.contentWindow;
         setInterval(function() {
             if (proxurl != xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'))) {
                 setInfo();
             }
         }, 500);
-    }
+	});
 </script>
 
-<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy" on:load|once={startLoop}></iframe>
+<iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy"></iframe>
 
 <style lang="postcss">
     iframe {
