@@ -44,6 +44,10 @@ body.pikl-winmaximized {
 }
 .pikl-tasktooltip {
     @apply w-auto py-1 px-3 bg-slate-900 absolute bottom-10 rounded-lg flex shadow-2xl font-bold transition-all text-white text-base right-[50%] translate-x-[50%] -translate-y-1 scale-0;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 .pikl-tasktooltip div:first-child {
     width: 0;

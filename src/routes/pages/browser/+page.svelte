@@ -30,7 +30,7 @@
     }
 </script>
 
-<div>
+<div class="flex flex-col w-full h-full">
     <div class="browser-tabs">
         <div class="browser-tab-cont flex">
             {#each tabs as tab, index (tab.id)}
@@ -39,26 +39,56 @@
                         class:active="{'TAB-' + index === selected_tab}"
                         on:click={() => changeTab(index)}
                     >
-                    {tab.name}
-                    <button class="newtabbtn jam jam-close" on:click={() => removeTab(index)} disabled="{tabs.length <= 1}"></button>
+                    <span>{tab.name}</span>
+                    <button class="closetabbtn jam jam-close" on:click={() => removeTab(index)} disabled="{tabs.length <= 1}"></button>
                 </button>
             {/each}
         </div>
         <button class="newtabbtn jam jam-plus" on:click={newTab}></button>
     </div>
     {#each tabs as tab, index (tab)}
-            <BrowserTabContainer active={'TAB-' + index === selected_tab}/>
+        <BrowserTabContainer active={'TAB-' + index === selected_tab} bind:title={tab.name}/>
     {/each}
 </div>
 
 <style lang="postcss">
     .browser-tabs {
-        @apply flex bg-slate-900 rounded-t;
+        @apply flex bg-slate-900 rounded-t border-b-[1px] border-gray-700 px-1;
     }
     .browser-tab {
-        @apply py-0.5 px-1 bg-transparent rounded-t border-x-[1px] border-t-[1px] border-transparent mx-1 mt-0.5 translate-y-[0.5px];
+        @apply py-0.5 px-1 bg-transparent rounded-t-sm border-x-[1px] border-t-[1px] border-transparent mt-0.5 translate-y-[1px];
+        will-change: transform;
+    }
+    .browser-tab:not(.active) {
+        @apply transition-all;
+    }
+    .browser-tab:not(.active):hover {
+        @apply before:hidden transition-all bg-gray-800 bg-opacity-50;
+    }
+    .browser-tab:not(.active):hover + .browser-tab {
+        @apply before:hidden transition-all;
+    }
+    .browser-tab::before {
+        @apply absolute top-[50%] translate-x-0 translate-y-[-50%] left-0 content-[''] block bg-gray-700 w-[1px] h-4;
+        @apply translate-x-[-2px];
+    }
+    .browser-tab#TAB-0::before {
+        @apply hidden;
+    }
+    .browser-tab> span {
+        @apply my-auto text-sm p-0;
+        line-height: 100%;
+    }
+    .browser-tab.active::before {
+        @apply hidden;
     }
     .browser-tab.active {
         @apply bg-gray-800 border-gray-700;
+    }
+    .newtabbtn {
+        @apply text-[20px] transition-transform;
+    }
+    .closetabbtn {
+        @apply my-auto text-[16px];
     }
 </style>

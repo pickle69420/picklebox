@@ -6,11 +6,15 @@
     */
     export let url;
     export let search = "https://google.com/search?q=";
-    export let proxurl;
+    /**
+     * @type {string}
+     */
+     export let proxurl;
     //export let title;
     /**
      * @type {HTMLIFrameElement}
      */
+    export let title;
     let proxframe;
     const xor = {
         /**
@@ -56,11 +60,9 @@
     proxurl = url;
     function setInfo() {
         let contwin = proxframe.contentWindow;
+        
         proxurl = xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'));
-        //if (contwin?.document.getElementsByTagName('title')[0].firstChild.textContent) {
-        //    title = contwin?.document.getElementsByTagName('title')[0].firstChild.textContent;
-        //}
-        console.log('I sed the info dad');
+        title = proxframe.contentDocument?.title || proxurl;
     }
     onMount(() => {
 		let contwin = proxframe.contentWindow;

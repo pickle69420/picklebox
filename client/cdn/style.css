@@ -739,6 +739,13 @@ body.pikl-winmaximized {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
 }
 
 .pikl-tasktooltip div:first-child {
