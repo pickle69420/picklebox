@@ -10,7 +10,7 @@ Road Map:
 
 - ``👍`` Create the Client with many features involved
 - ``👍`` Create the Server with a proxy installed
-- ``✍`` Setup a basic proxy browser
+- ``✍`` Setup a fully featured proxy browser
 - ``🦵``Setup Accounts
 - ``🦵`` Settings and other tweaks
 - ``🦵`` Setup News
