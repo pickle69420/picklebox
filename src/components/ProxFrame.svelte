@@ -1,10 +1,14 @@
 <script>
     import { page } from '$app/stores';
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     /**
     * @type {String}
     */
     export let url;
+    /**
+     * @type {any}
+     */
+     export let icon;
     export let search = "https://google.com/search?q=";
     /**
      * @type {string}
@@ -15,6 +19,9 @@
      * @type {HTMLIFrameElement}
      */
     export let title;
+    /**
+     * @type {HTMLIFrameElement}
+     */
     let proxframe;
     const xor = {
         /**
@@ -63,15 +70,41 @@
         
         proxurl = xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'));
         title = proxframe.contentDocument?.title || proxurl;
+        if (proxframe.contentDocument?.head) {
+      const icons =
+        proxframe.contentDocument?.head.querySelectorAll(
+          "link[rel='favicon'], link[rel='shortcut icon'], link[rel='icon']"
+        );
+      let ico;
+      try {
+        ico = new URL("/favicon.ico", proxurl).toString();
+      } catch {}
+      for (let i = icons.length - 1; i >= 0; i--) {
+        if (Array.from(icons)?.at(i)?.href) {
+          ico = Array.from(icons).at(i)?.href;
+          break;
+        }
+      }
+
+      if (ico && /^data:/.test(ico)) {
+        icon = ico;
+      } else if (ico) {
+        icon = ico;
+      }
     }
+    }
+    /**
+     * @type {string | number | NodeJS.Timer | undefined}
+     */
+    let interval;
     onMount(() => {
-		let contwin = proxframe.contentWindow;
-        setInterval(function() {
-            if (proxurl != xor.decode(contwin?.location.href.split('/~uv/').slice(1).join('/~uv/'))) {
-                setInfo();
-            }
-        }, 500);
-	});
+        interval = setInterval(function() {
+            setInfo();
+        }, 100);
+	  });
+    onDestroy(() => {
+		  clearInterval(interval);
+	  });
 </script>
 
 <iframe bind:this={proxframe} src="{$page.url.origin}/~uv/{xor.encode(url)}" title="PiklProxy"></iframe>

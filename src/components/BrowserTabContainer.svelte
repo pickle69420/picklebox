@@ -1,10 +1,15 @@
 <script>
+    import { is_function } from 'svelte/internal';
     import ProxFrame from './ProxFrame.svelte';
     export let active = false;
     /**
      * @type {any}
      */
      export let title;
+     /**
+     * @type {any}
+     */
+      export let icon;
     /**
      * @type {any}
      */
@@ -38,6 +43,7 @@
           submittedvalue = newtabinputvalue;
         } 
     }
+    $: icon = submittedvalue == null ? '/img/newtab.svg' : icon;
 </script>
 
 <div class={active == true ? 'flex flex-col w-full h-full' : 'binactive flex flex-col w-full h-full'}>
@@ -62,15 +68,10 @@
                 <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
                 <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
                 <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
-                <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
-                <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
-                <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
-                <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
-                <div class="newtab-pin"><img class="pin-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"><p class="pin-text">Google</p></div>
             </div>
         </div>
     {:else}
-        <ProxFrame url={submittedvalue} bind:proxurl={inputvalue} bind:title />
+        <ProxFrame url={submittedvalue} bind:proxurl={inputvalue} bind:title bind:icon/>
     {/if}
 </div>
 
