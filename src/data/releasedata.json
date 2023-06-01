@@ -1,0 +1,14 @@
+{
+    "mainversion": "1.0",
+    "versions" : {
+        "home":"0.1-beta",
+        "news":"-1",
+        "browser":"0.1-alpha",
+        "chat":"-1",
+        "games":"-1",
+        "watch":"-1",
+        "read":"-1",
+        "music":"-1",
+        "settings":"-1"
+    }
+}

@@ -1,1 +1,5 @@
-<h1>Welcome to EduLive, a school app that is transforming the education spectrum!</h1>
+<title>EduLive</title>
+
+<h1>EduLive</h1>
+
+<p>The new platform for education</p>

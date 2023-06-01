@@ -1,28 +1,38 @@
-# PickleHub
+# create-svelte
 
-🔥 Excited? Leave a ⭐ (top right corner)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-A new type of proxy that is entirely in a bookmarklet! It is still in development. Follow my github account or watch this repository to get updates in your feed.
+## Creating a project
 
-ANNOUNCEMENT: I was planning to release the Public Beta by the end of March 2023 but i am currently expierencing slowdowns. Sorry for the wait.
-<br>
-ANNOUNCEMENT: I cannot continue development for the time being as my principal threatend me getting expelled.
+If you're seeing this, you've probably already done this step. Congrats!
 
-Road Map:
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-- ``👍`` Create the Client with many features involved
-- ``👍`` Create the Server with a proxy installed
-- ``✍`` Setup a fully featured proxy browser
-- ``🦵``Setup Accounts
-- ``🦵`` Settings and other tweaks
-- ``🦵`` Setup News
-- ``👌`` Release Public Beta 0.7.0
-- ``🦵`` Add Game files
-- ``🦵`` Create the game browser and launcher
-- ``🦵`` Add extra features
-- ``👌`` Release 1.0.0
-- ``🦵`` Other stuff (not planned) (yet)
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-I hope people are excited for this, so I want to give you guys a little update with each commit:
-Here is what the UI looks like right now (feel free to put suggestions in the issues tab):
-![PickleHub](https://raw.githubusercontent.com/pickle69420/picklebox/main/currentui.png "PickleHub")
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
