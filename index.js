@@ -10,9 +10,9 @@ const httpServer = http.createServer();
 
 const app = express();
 
-app.use("/uv/", express.static(uvPath));
-
 app.use(handler);
+
+app.use("/uv/", express.static(uvPath));
 
 const bareServer = createBareServer('/bare/');
 
