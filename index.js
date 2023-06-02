@@ -4,13 +4,15 @@ import http from 'node:http';
 import { handler } from './build/handler.js';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
 
+console.log(uvPath);
+
 const httpServer = http.createServer();
 
 const app = express();
 
-app.use(handler);
+app.use("/uv/", express.static(uvPath));
 
-app.use('/uv', express.static(uvPath));
+app.use(handler);
 
 const bareServer = createBareServer('/bare/');
 
