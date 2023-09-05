@@ -1,5 +1,7 @@
 # PickleHub
 
+TEST REPO: [pickelhubreact repository](https://github.com/pickle69420/pickelhubreact)
+
 🔥 Excited? Leave a ⭐ (top right corner)
 
 A new type of proxy that is entirely in a bookmarklet! It is still in development. Follow my github account or watch this repository to get updates in your feed.
